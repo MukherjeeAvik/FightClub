@@ -1,12 +1,11 @@
-package com.githubexamples.avik.matchMaking.presentation
+package com.githubexamples.avik.fightclub.presentation
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.githubexamples.avik.matchMaking.R
-import com.githubexamples.avik.matchMaking.base.BaseActivity
-import com.githubexamples.avik.matchMaking.base.ViewModelProviderFactory
-import com.githubexamples.avik.matchMaking.navigation.MainNavigator
-import kotlinx.android.synthetic.main.activity_main.*
+import com.githubexamples.avik.fightclub.R
+import com.githubexamples.avik.fightclub.base.BaseActivity
+import com.githubexamples.avik.fightclub.base.ViewModelProviderFactory
+import com.githubexamples.avik.fightclub.navigation.MainNavigator
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -23,7 +22,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProvider(this, providerFactory).get(MainViewModel::class.java)
-        mainNavigator.openMatchMakingPage(R.id.fragmentContainer, false)
+
 
     }
 
@@ -31,6 +30,6 @@ class MainActivity : BaseActivity() {
 
     override fun getLifeCycleObserver() = mainViewModel
 
-    override fun getParentLayForSnackBar() = rootLay
+    override fun getParentLayForSnackBar() = TODO()
 
 }

@@ -1,13 +1,13 @@
-package com.githubexamples.avik.matchMaking.di.modules
+package com.githubexamples.avik.fightclub.di.modules
 
 import android.app.Application
-import com.githubExamples.mvvm.architecture.data.repos.remote.Utils.RequestInterceptor
-import com.githubexamples.avik.matchMaking.di.qualifiers.BaseUrl
-import com.githubexamples.avik.matchMaking.data.api.ApiService
+import com.githubexamples.avik.fightclub.data.api.utils.RequestInterceptor
+import com.githubexamples.avik.fightclub.di.qualifiers.BaseUrl
+import com.githubexamples.avik.fightclub.data.api.ApiService
 
 import dagger.Module
 import dagger.Provides
-import com.githubexamples.avik.matchMaking.utils.BASE_URL
+import com.githubexamples.avik.fightclub.utils.BASE_URL
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

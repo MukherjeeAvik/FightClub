@@ -1,8 +1,8 @@
-package com.githubexamples.avik.matchMaking.di.modules
+package com.githubexamples.avik.fightclub.di.modules
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import com.githubexamples.avik.matchMaking.presentation.MainActivity
+import com.githubexamples.avik.fightclub.presentation.MainActivity
 import dagger.Module
 import dagger.Provides
 

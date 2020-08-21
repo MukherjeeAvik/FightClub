@@ -1,8 +1,7 @@
-package com.githubExamples.mvvm.architecture.data.repos.remote.Utils
+package com.githubexamples.avik.fightclub.data.api.utils
 
 import android.app.Application
-import com.githubexamples.avik.matchMaking.MyApplication
-import com.githubexamples.avik.matchMaking.data.api.utils.NoInternetAvailableException
+import com.githubexamples.avik.fightclub.MyApplication
 import okhttp3.Interceptor
 import okhttp3.Response
 

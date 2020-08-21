@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.data.api.utils
+package com.githubexamples.avik.fightclub.data.api.utils
 
 class NoInternetAvailableException : Exception() {
     

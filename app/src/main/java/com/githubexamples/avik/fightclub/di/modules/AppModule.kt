@@ -1,9 +1,9 @@
-package com.githubexamples.avik.matchMaking.di.modules
+package com.githubexamples.avik.fightclub.di.modules
 
 import android.app.Application
 import android.content.Context
-import com.githubexamples.avik.matchMaking.utils.rx.AppSchedulerProvider
-import com.githubexamples.avik.matchMaking.utils.rx.SchedulerProvider
+import com.githubexamples.avik.fightclub.utils.rx.AppSchedulerProvider
+import com.githubexamples.avik.fightclub.utils.rx.SchedulerProvider
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

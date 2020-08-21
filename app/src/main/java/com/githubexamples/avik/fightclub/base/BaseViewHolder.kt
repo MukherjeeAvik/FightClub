@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.base
+package com.githubexamples.avik.fightclub.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

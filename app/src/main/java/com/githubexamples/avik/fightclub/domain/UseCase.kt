@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.domain
+package com.githubexamples.avik.fightclub.domain
 
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable

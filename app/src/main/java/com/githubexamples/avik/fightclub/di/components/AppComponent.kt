@@ -1,11 +1,11 @@
-package com.githubexamples.avik.matchMaking.di.components
+package com.githubexamples.avik.fightclub.di.components
 
-import com.githubexamples.avik.matchMaking.di.modules.RetrofitModule
+import com.githubexamples.avik.fightclub.di.modules.RetrofitModule
 import android.app.Application
-import com.githubexamples.avik.matchMaking.di.ActivityBuilderModule
-import com.githubexamples.avik.matchMaking.di.modules.AppModule
-import com.githubexamples.avik.matchMaking.MyApplication
-import com.githubexamples.avik.matchMaking.di.modules.DataModule
+import com.githubexamples.avik.fightclub.di.ActivityBuilderModule
+import com.githubexamples.avik.fightclub.di.modules.AppModule
+import com.githubexamples.avik.fightclub.MyApplication
+import com.githubexamples.avik.fightclub.di.modules.DataModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @Component(
     modules = [AndroidSupportInjectionModule::class,
         ActivityBuilderModule::class, AppModule::class,
-        RetrofitModule::class,DataModule::class]
+        RetrofitModule::class, DataModule::class]
 )
 interface AppComponent : AndroidInjector<MyApplication> {
 

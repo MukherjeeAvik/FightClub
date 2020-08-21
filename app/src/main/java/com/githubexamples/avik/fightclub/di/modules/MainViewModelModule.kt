@@ -1,8 +1,8 @@
-package com.githubexamples.avik.matchMaking.di.modules
+package com.githubexamples.avik.fightclub.di.modules
 
 import androidx.lifecycle.ViewModel
-import com.githubexamples.avik.matchMaking.di.scopes.ViewModelKey
-import com.githubexamples.avik.matchMaking.presentation.MainViewModel
+import com.githubexamples.avik.fightclub.di.scopes.ViewModelKey
+import com.githubexamples.avik.fightclub.presentation.MainViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

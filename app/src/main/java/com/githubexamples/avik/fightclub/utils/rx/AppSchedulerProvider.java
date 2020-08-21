@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.utils.rx;
+package com.githubexamples.avik.fightclub.utils.rx;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;

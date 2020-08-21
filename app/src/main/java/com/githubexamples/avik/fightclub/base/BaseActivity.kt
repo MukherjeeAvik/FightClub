@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.base
+package com.githubexamples.avik.fightclub.base
 
 import android.app.Application
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import androidx.lifecycle.LifecycleObserver
-import com.githubexamples.avik.matchMaking.R
-import com.githubexamples.avik.matchMaking.utils.PLEASE_NOTE
+import com.githubexamples.avik.fightclub.R
+import com.githubexamples.avik.fightclub.utils.PLEASE_NOTE
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.utils
+package com.githubexamples.avik.fightclub.utils
 import android.util.Log
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable

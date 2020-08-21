@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.base
+package com.githubexamples.avik.fightclub.base
 
 import android.app.Application
 import android.content.Context
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleObserver
-import com.githubexamples.avik.matchMaking.base.BaseActivity
+import com.githubexamples.avik.fightclub.base.BaseActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

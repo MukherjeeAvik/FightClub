@@ -1,10 +1,10 @@
-package com.githubexamples.avik.matchMaking.base
+package com.githubexamples.avik.fightclub.base
 
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
-import com.githubexamples.avik.matchMaking.R
+import com.githubexamples.avik.fightclub.R
 import java.lang.ref.WeakReference
 
 

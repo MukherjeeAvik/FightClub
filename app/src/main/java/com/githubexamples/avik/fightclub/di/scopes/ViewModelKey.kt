@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.di.scopes
+package com.githubexamples.avik.fightclub.di.scopes
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

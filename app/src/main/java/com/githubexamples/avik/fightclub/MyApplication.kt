@@ -1,8 +1,8 @@
-package com.githubexamples.avik.matchMaking
+package com.githubexamples.avik.fightclub
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.githubexamples.avik.matchMaking.di.components.DaggerAppComponent
+import com.githubexamples.avik.fightclub.di.components.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

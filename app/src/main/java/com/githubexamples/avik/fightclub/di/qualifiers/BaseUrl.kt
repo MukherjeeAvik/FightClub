@@ -1,4 +1,4 @@
-package com.githubexamples.avik.matchMaking.di.qualifiers
+package com.githubexamples.avik.fightclub.di.qualifiers
 
 import javax.inject.Qualifier
 
