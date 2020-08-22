@@ -32,15 +32,25 @@ class MainActivity : BaseActivity() {
 
     private lateinit var mainViewModel: MainViewModel
 
-    private val movieListingAdapter: MovieListingAdapter by lazy { MovieListingAdapter() }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProvider(this, providerFactory).get(MainViewModel::class.java)
-        observeViewStates()
-        mainViewModel.getListOfMovies()
+        mainNavigator.openListingPage(R.id.fragmentContainer, false)
+        searchMovieBtn.setOnClickListener {
+            mainNavigator.openSearchPage(R.id.fragmentContainer, true)
+        }
+        observeUiForChanges()
 
+    }
+
+    private fun observeUiForChanges() {
+        mainViewModel.observeSearchButton().observe(this, Observer { shouldShow ->
+            if (shouldShow)
+                searchMovieBtn.show()
+            else
+                searchMovieBtn.hide()
+        })
     }
 
 
@@ -50,43 +60,5 @@ class MainActivity : BaseActivity() {
 
     override fun getParentLayForSnackBar() = parentLayout
 
-
-    private fun observeViewStates() {
-
-        mainViewModel.observeMovieListingState().observe(this, Observer { viewState ->
-
-            when (viewState) {
-
-                is MovieListingViewState.Loading -> loader.showAsPer(viewState.isLoading)
-                is MovieListingViewState.ShowList -> {
-                    setUpAdapter(viewState.movieList)
-                    loader.hide()
-                }
-                is MovieListingViewState.Error -> {
-                    onNotifyError(viewState.message)
-                    loader.hide()
-                }
-
-
-            }
-        })
-    }
-
-    private fun setUpAdapter(list: List<MovieListItem>) {
-
-        movieListingAdapter.addAll(list)
-        movieListingAdapter.registerForCallbacks(object :
-            BaseViewHolder.ItemClickedCallback<MovieListItem> {
-            override fun onClicked() {
-                TODO("Not yet implemented")
-            }
-
-        })
-        movieListingAdapter.setHasStableIds(true)
-        movieListing.setHasFixedSize(true)
-        movieListing.adapter = movieListingAdapter
-
-
-    }
 
 }

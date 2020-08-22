@@ -20,8 +20,10 @@ class MainViewModel @Inject constructor(
     private var currentPageNumber = 1
 
     private val movieListing: SingleLiveEvent<MovieListingViewState> by lazy { SingleLiveEvent<MovieListingViewState>() }
+    private val searchButton: SingleLiveEvent<Boolean> by lazy { SingleLiveEvent<Boolean>() }
 
     fun observeMovieListingState() = movieListing
+    fun observeSearchButton() = searchButton
 
     fun getListOfMovies() {
         compositeDisposable.add(movieListingUseCase.subscribeForData(currentPageNumber)
@@ -40,6 +42,14 @@ class MainViewModel @Inject constructor(
                 movieListing.postValue(MovieListingViewState.Error(NO_NETWORK))
             })
         )
+    }
+
+    fun showSearchButton(){
+        searchButton.postValue(true)
+    }
+
+    fun hideSearchButton(){
+        searchButton.postValue(false)
     }
 
 }
