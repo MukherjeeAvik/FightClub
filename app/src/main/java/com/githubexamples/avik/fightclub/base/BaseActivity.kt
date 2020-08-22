@@ -62,16 +62,13 @@ abstract class BaseActivity : DaggerAppCompatActivity(), BaseFragment.Callback {
 
         }
         val snackBarView = snackbar?.view
-        snackBarView?.setBackgroundColor(ContextCompat.getColor(this, R.color.errorColor))
+        snackBarView?.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError))
         val snackBarTextView =
             snackbar?.view?.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         snackBarTextView?.maxLines = 2
         snackbar?.show()
     }
 
-    protected fun hideError() {
-        snackbar?.dismiss()
-    }
 
     abstract fun getParentLayForSnackBar(): View?
     override fun onNotifyError(errorMessage: String) {
@@ -81,7 +78,7 @@ abstract class BaseActivity : DaggerAppCompatActivity(), BaseFragment.Callback {
     }
 
     override fun removeErrorsIfAny() {
-        hideError()
+
     }
 }
 

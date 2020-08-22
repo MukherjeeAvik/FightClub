@@ -7,7 +7,7 @@ import io.reactivex.subjects.PublishSubject
 abstract class UseCase<T> {
 
 
-    protected val dataRepo = PublishSubject.create<T>()
+    protected val stream = PublishSubject.create<T>()
     protected val compositeDisposable by lazy { CompositeDisposable() }
 
 

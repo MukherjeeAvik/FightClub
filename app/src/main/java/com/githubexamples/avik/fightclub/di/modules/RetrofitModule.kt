@@ -63,7 +63,7 @@ class RetrofitModule {
     fun provideHttpLogger(): HttpLoggingInterceptor {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         return httpLoggingInterceptor.apply {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         }
     }
 
