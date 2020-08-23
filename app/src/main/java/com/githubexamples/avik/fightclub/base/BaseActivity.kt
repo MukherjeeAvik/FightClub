@@ -1,9 +1,11 @@
 package com.githubexamples.avik.fightclub.base
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -78,7 +80,7 @@ abstract class BaseActivity : DaggerAppCompatActivity(), BaseFragment.Callback {
     }
 
     override fun removeErrorsIfAny() {
-
+        snackbar?.dismiss()
     }
 }
 

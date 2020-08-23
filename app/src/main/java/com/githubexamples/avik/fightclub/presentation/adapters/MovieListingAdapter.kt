@@ -21,6 +21,7 @@ class MovieListingAdapter () :
     }
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
+
         holder.loadData(list[position])
     }
 

@@ -14,7 +14,7 @@ import com.githubexamples.avik.fightclub.presentation.adapters.MovieListingAdapt
 import com.githubexamples.avik.fightclub.presentation.entity.MovieListingViewState
 import com.githubexamples.avik.fightclub.utils.hide
 import com.githubexamples.avik.fightclub.utils.showAsPer
-import kotlinx.android.synthetic.main.main_content.*
+import kotlinx.android.synthetic.main.movie_listing_page.*
 import javax.inject.Inject
 
 class MovieListingFragment : BaseFragment() {
@@ -45,12 +45,13 @@ class MovieListingFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
         mainViewModel =
             ViewModelProvider(requireActivity(), providerFactory).get(MainViewModel::class.java)
+        mainViewModel.getListOfMovies()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewStates()
-        mainViewModel.getListOfMovies()
+
 
 
     }
@@ -97,9 +98,10 @@ class MovieListingFragment : BaseFragment() {
         movieListingAdapter.addAll(list)
         movieListingAdapter.registerForCallbacks(object :
             BaseViewHolder.ItemClickedCallback<MovieListItem> {
-            override fun onClicked() {
-                TODO("Not yet implemented")
+            override fun onClicked(data: MovieListItem) {
+
             }
+
 
         })
         movieListing.setHasFixedSize(true)

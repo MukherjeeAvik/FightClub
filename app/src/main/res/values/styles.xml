@@ -11,6 +11,11 @@
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -39,6 +44,24 @@
         <item name="paddingEnd">4dp</item>
         <item name="cardElevation">4dp</item>
     </style>
+
+    <style name="search_card_Style">
+        <item name="cardBackgroundColor">@color/card_bg</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="android:layout_margin">4dp</item>
+
+        <item name="cardElevation">4dp</item>
+    </style>
+
+
+    <style name="general_header">
+       <item name="fontFamily">@font/roboto_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+
+
 
 
 

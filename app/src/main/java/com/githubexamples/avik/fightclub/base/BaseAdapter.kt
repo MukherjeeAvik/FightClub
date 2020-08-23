@@ -10,7 +10,7 @@ abstract class BaseAdapter<V : Any, T : RecyclerView.ViewHolder> : RecyclerView.
     val listSize: Int
         get() = list.size
 
-    var clickListener: BaseViewHolder.ItemClickedCallback<V>?=null
+    protected var clickListener: BaseViewHolder.ItemClickedCallback<V>?=null
 
 
     /**

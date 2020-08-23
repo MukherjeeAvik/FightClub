@@ -15,7 +15,7 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
 
 
     interface ItemClickedCallback<T> {
-        fun onClicked()
+        fun onClicked(data: T)
     }
 
 

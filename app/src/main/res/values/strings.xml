@@ -11,4 +11,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="book">Book</string>
     <string name="search_a_movie">search a movie</string>
+    <string name="watch_your_favourite_movie">Watch your favourite movie!</string>
+    <string name="recent_search_header">Recently searched movies:</string>
+    <string name="search_any_movie">Search any movie!</string>
+    <string name="reuslts_heading">Here are your Results!</string>
 </resources>

@@ -16,4 +16,6 @@ const val VALUE_LANGUAGE = "en-US"
 
 const val IMAGE_URL_PREFIX = "https://image.tmdb.org/t/p/original"
 
+const val NO_RESULTS_FOUND = "Did not find a thing!"
+
 

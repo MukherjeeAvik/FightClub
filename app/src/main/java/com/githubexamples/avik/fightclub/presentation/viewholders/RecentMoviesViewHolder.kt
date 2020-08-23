@@ -7,19 +7,12 @@ import com.githubexamples.avik.fightclub.R
 import com.githubexamples.avik.fightclub.base.BaseViewHolder
 import com.githubexamples.avik.fightclub.domain.entitity.MovieListItem
 import com.githubexamples.avik.fightclub.utils.loadPoster
-import kotlinx.android.synthetic.main.movie_list_item.view.*
+import kotlinx.android.synthetic.main.recent_search_item.view.*
 
 
-class MovieListViewHolder(itemView: View) : BaseViewHolder<MovieListItem>(itemView) {
+class RecentMoviesViewHolder(itemView: View) : BaseViewHolder<MovieListItem>(itemView) {
     override fun loadData(receivedData: MovieListItem) {
-        itemView.movieNameTxt.text = receivedData.movieTitle
-        itemView.releaseDateTxt.text = receivedData.releaseData
         itemView.moviePoster.loadPoster(receivedData.moviePoster)
-
-        itemView.setOnClickListener {
-            itemClickCallback?.onClicked(receivedData)
-        }
-
     }
 
 
@@ -27,10 +20,10 @@ class MovieListViewHolder(itemView: View) : BaseViewHolder<MovieListItem>(itemVi
         fun create(
             parent: ViewGroup,
             callBack: ItemClickedCallback<MovieListItem>?
-        ): MovieListViewHolder {
+        ): RecentMoviesViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.movie_list_item, parent, false)
-            return MovieListViewHolder(view).also { it.itemClickCallback = callBack }
+                .inflate(R.layout.recent_search_item, parent, false)
+            return RecentMoviesViewHolder(view).also { it.itemClickCallback = callBack }
         }
     }
 
