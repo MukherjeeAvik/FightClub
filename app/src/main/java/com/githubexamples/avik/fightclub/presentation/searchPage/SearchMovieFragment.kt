@@ -8,9 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.githubexamples.avik.fightclub.R
 import com.githubexamples.avik.fightclub.base.BaseFragment
+import com.githubexamples.avik.fightclub.base.BaseNavigator
 import com.githubexamples.avik.fightclub.base.BaseViewHolder
 import com.githubexamples.avik.fightclub.base.ViewModelProviderFactory
 import com.githubexamples.avik.fightclub.domain.entitity.MovieListItem
+import com.githubexamples.avik.fightclub.navigation.MainNavigator
 import com.githubexamples.avik.fightclub.presentation.MainViewModel
 import com.githubexamples.avik.fightclub.presentation.adapters.MovieListingAdapter
 import com.githubexamples.avik.fightclub.presentation.adapters.RecentlySearchedMoviesAdapter
@@ -28,6 +30,10 @@ class SearchMovieFragment : BaseFragment() {
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
+
+
+    @Inject
+    lateinit var mainNavigator: MainNavigator
 
 
     private val movieListingAdapter: MovieListingAdapter by lazy { MovieListingAdapter() }
@@ -107,7 +113,7 @@ class SearchMovieFragment : BaseFragment() {
                     searchPageLoader.hide()
                     removeErrors()
                     searchResultHeading.show()
-                    searchResultHeading.text =getString(R.string.reuslts_heading)
+                    searchResultHeading.text = getString(R.string.reuslts_heading)
                 }
                 is MovieListingViewState.Error -> {
                     setUpAdapter(ArrayList())
@@ -120,24 +126,30 @@ class SearchMovieFragment : BaseFragment() {
             }
         })
 
-        mainViewModel.observeRecentlySearchedMovies().observe(viewLifecycleOwner, Observer { viewState ->
-            when (viewState) {
+        mainViewModel.observeRecentlySearchedMovies()
+            .observe(viewLifecycleOwner, Observer { viewState ->
+                when (viewState) {
 
-                is MovieListingViewState.Loading -> searchPageLoader.showAsPer(viewState.isLoading)
-                is MovieListingViewState.ShowList -> {
-                    setUpRecentCache(viewState.movieList)
-                    searchPageLoader.hide()
-                    removeErrors()
-                    recentlySearchedHeading.text =  getString(R.string.recent_search_header)
+                    is MovieListingViewState.Loading -> searchPageLoader.showAsPer(viewState.isLoading)
+                    is MovieListingViewState.ShowList -> {
+                        setUpRecentCache(viewState.movieList)
+                        searchPageLoader.hide()
+                        removeErrors()
+                        recentlySearchedHeading.text = getString(R.string.recent_search_header)
+                    }
+                    is MovieListingViewState.Error -> {
+                        setUpRecentCache(ArrayList())
+                        searchPageLoader.hide()
+                        recentlySearchedHeading.hide()
+                    }
+
+
                 }
-                is MovieListingViewState.Error -> {
-                    setUpRecentCache(ArrayList())
-                    searchPageLoader.hide()
-                    recentlySearchedHeading.hide()
-                }
+            })
 
+        mainViewModel.observeIfMovieSavedToCache().observe(viewLifecycleOwner, Observer { movieId ->
 
-            }
+            mainNavigator.openMovieDetailsPage(movieId, requireContext())
         })
 
     }
@@ -159,7 +171,7 @@ class SearchMovieFragment : BaseFragment() {
 
     }
 
-    private fun setUpRecentCache(list: List<MovieListItem>){
+    private fun setUpRecentCache(list: List<MovieListItem>) {
         recentlyClickedAdapter.addAll(list)
         recentlyClickedAdapter.registerForCallbacks(object :
             BaseViewHolder.ItemClickedCallback<MovieListItem> {

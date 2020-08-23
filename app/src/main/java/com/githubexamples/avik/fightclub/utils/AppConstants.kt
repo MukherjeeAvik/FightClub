@@ -18,4 +18,6 @@ const val IMAGE_URL_PREFIX = "https://image.tmdb.org/t/p/original"
 
 const val NO_RESULTS_FOUND = "Did not find a thing!"
 
+const val MOVIE_ID ="MOVIE_ID"
+
 

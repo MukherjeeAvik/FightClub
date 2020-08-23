@@ -5,8 +5,10 @@ import com.githubexamples.avik.fightclub.domain.entitity.MovieListItem
 import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class CacheMovieUseCase @Inject constructor():UseCase<List<MovieListItem>>() {
+@Singleton
+class CacheMovieUseCase @Inject constructor() : UseCase<List<MovieListItem>>() {
 
 
     private val cacheList = LinkedHashMap<String, MovieListItem>(16, .75f, true);

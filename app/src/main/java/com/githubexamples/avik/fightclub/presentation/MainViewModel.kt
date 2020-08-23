@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
     private val searchButton: SingleLiveEvent<Boolean> by lazy { SingleLiveEvent<Boolean>() }
     private val searchResult: SingleLiveEvent<MovieListingViewState> by lazy { SingleLiveEvent<MovieListingViewState>() }
     private val recentMovies: SingleLiveEvent<MovieListingViewState> by lazy { SingleLiveEvent<MovieListingViewState>() }
-    private val movieCachedSuccessfully: SingleLiveEvent<Boolean> by lazy { SingleLiveEvent<Boolean>() }
+    private val movieCachedSuccessfully: SingleLiveEvent<String> by lazy { SingleLiveEvent<String>() }
 
     fun observeMovieListingState() = movieListing
     fun observeSearchButton() = searchButton
@@ -103,8 +103,12 @@ class MainViewModel @Inject constructor(
     fun putMovieToCache(movie: MovieListItem) {
         compositeDisposable.add(
             cacheSearchedMovies.storeToCache(movie)
-                .subscribeOn(scheduler.io()).subscribe({ movieCachedSuccessfully.postValue(true) },
-                    { movieCachedSuccessfully.postValue(false) })
+                .subscribeOn(scheduler.io()).subscribe({
+                    movieCachedSuccessfully.postValue(movie.movieId)
+                },
+                    {
+                        movieCachedSuccessfully.postValue(movie.movieId)
+                    })
         )
 
     }

@@ -15,4 +15,6 @@
     <string name="recent_search_header">Recently searched movies:</string>
     <string name="search_any_movie">Search any movie!</string>
     <string name="reuslts_heading">Here are your Results!</string>
+    <string name="movie_casting">Movie Casting</string>
+    <string name="movies_you_like">Movies you might like!</string>
 </resources>

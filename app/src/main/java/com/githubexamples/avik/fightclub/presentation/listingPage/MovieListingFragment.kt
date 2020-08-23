@@ -6,9 +6,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.githubexamples.avik.fightclub.R
 import com.githubexamples.avik.fightclub.base.BaseFragment
+import com.githubexamples.avik.fightclub.base.BaseNavigator
 import com.githubexamples.avik.fightclub.base.BaseViewHolder
 import com.githubexamples.avik.fightclub.base.ViewModelProviderFactory
 import com.githubexamples.avik.fightclub.domain.entitity.MovieListItem
+import com.githubexamples.avik.fightclub.navigation.MainNavigator
 import com.githubexamples.avik.fightclub.presentation.MainViewModel
 import com.githubexamples.avik.fightclub.presentation.adapters.MovieListingAdapter
 import com.githubexamples.avik.fightclub.presentation.entity.MovieListingViewState
@@ -24,6 +26,8 @@ class MovieListingFragment : BaseFragment() {
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
 
+    @Inject
+    lateinit var mainNavigator: MainNavigator
 
     private val movieListingAdapter: MovieListingAdapter by lazy { MovieListingAdapter() }
 
@@ -53,7 +57,6 @@ class MovieListingFragment : BaseFragment() {
         observeViewStates()
 
 
-
     }
 
     override fun onResume() {
@@ -74,7 +77,7 @@ class MovieListingFragment : BaseFragment() {
 
     private fun observeViewStates() {
 
-        mainViewModel.observeMovieListingState().observe(this, Observer { viewState ->
+        mainViewModel.observeMovieListingState().observe(viewLifecycleOwner, Observer { viewState ->
 
             when (viewState) {
 
@@ -99,7 +102,7 @@ class MovieListingFragment : BaseFragment() {
         movieListingAdapter.registerForCallbacks(object :
             BaseViewHolder.ItemClickedCallback<MovieListItem> {
             override fun onClicked(data: MovieListItem) {
-
+                mainNavigator.openMovieDetailsPage(data.movieId, requireContext())
             }
 
 
