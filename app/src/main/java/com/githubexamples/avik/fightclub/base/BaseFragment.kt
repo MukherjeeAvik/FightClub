@@ -1,5 +1,6 @@
 package com.githubexamples.avik.fightclub.base
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
@@ -11,9 +12,9 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleObserver
-import com.githubexamples.avik.fightclub.base.BaseActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
+
 
 abstract class BaseFragment : Fragment() {
 
@@ -55,6 +56,10 @@ abstract class BaseFragment : Fragment() {
         if(activity is BaseActivity) {
             (activity as BaseActivity).removeErrorsIfAny()
         }
+    }
+    fun hideKeyBoard(){
+        val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
     abstract fun getFragmentTag(): String

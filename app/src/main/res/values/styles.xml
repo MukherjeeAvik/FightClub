@@ -72,7 +72,7 @@
     <style name="general_footer">
         <item name="fontFamily">@font/roboto_extra_light</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
     </style>
 
 

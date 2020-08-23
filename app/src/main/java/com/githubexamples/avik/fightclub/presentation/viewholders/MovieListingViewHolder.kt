@@ -19,6 +19,9 @@ class MovieListViewHolder(itemView: View) : BaseViewHolder<MovieListItem>(itemVi
         itemView.setOnClickListener {
             itemClickCallback?.onClicked(receivedData)
         }
+        itemView.bookBtn.setOnClickListener {
+            itemClickCallback?.onClicked(receivedData)
+        }
 
     }
 

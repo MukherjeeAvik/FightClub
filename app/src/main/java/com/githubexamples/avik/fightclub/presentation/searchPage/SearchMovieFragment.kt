@@ -56,6 +56,7 @@ class SearchMovieFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
         mainViewModel.hideSearchButton()
+        mainViewModel.getListOfCachedSearchMovies()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +72,6 @@ class SearchMovieFragment : BaseFragment() {
         observeSearchText()
         searchText.requestFocus()
         showKeyboard()
-        mainViewModel.getListOfCachedSearchMovies()
     }
 
     private fun observeSearchText() {
@@ -82,7 +82,10 @@ class SearchMovieFragment : BaseFragment() {
                 before: Int,
                 count: Int
             ) {
-                mainViewModel.searchFor(s.toString())
+                if (s.toString().isNotEmpty())
+                    mainViewModel.searchFor(s.toString())
+                else
+                    removeErrors()
 
             }
 
@@ -135,6 +138,7 @@ class SearchMovieFragment : BaseFragment() {
                         setUpRecentCache(viewState.movieList)
                         searchPageLoader.hide()
                         removeErrors()
+                        recentlySearchedHeading.show()
                         recentlySearchedHeading.text = getString(R.string.recent_search_header)
                     }
                     is MovieListingViewState.Error -> {
@@ -148,7 +152,7 @@ class SearchMovieFragment : BaseFragment() {
             })
 
         mainViewModel.observeIfMovieSavedToCache().observe(viewLifecycleOwner, Observer { movieId ->
-
+            hideKeyBoard()
             mainNavigator.openMovieDetailsPage(movieId, requireContext())
         })
 

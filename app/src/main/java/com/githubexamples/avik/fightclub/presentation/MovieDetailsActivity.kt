@@ -110,6 +110,12 @@ class MovieDetailsActivity : BaseActivity() {
     }
 
     private fun showCasting(movieCast: List<MovieCast>) {
+
+        if (movieCast.isEmpty()) {
+            hideCasting()
+            return
+        }
+
         castingCard.show()
         castingHeading.text = getString(R.string.movie_casting)
         val movieCastAdapter = MovieCastAdapter()
@@ -124,6 +130,10 @@ class MovieDetailsActivity : BaseActivity() {
     }
 
     private fun showSimilarMovies(similarMovies: List<MovieListItem>) {
+        if (similarMovies.isEmpty()) {
+            hideSimilarMovies()
+            return
+        }
         relatedMovies.show()
         relatedMoviesHeading.text = getString(R.string.movies_you_like)
         val layoutManager = PeekingLayoutManager(this, RecyclerView.HORIZONTAL, false)

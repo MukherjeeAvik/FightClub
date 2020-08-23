@@ -10,6 +10,7 @@ import com.githubexamples.avik.fightclub.di.scopes.MovieDetailScope
 import com.githubexamples.avik.fightclub.domain.GetSimilarMovieApiSource
 import com.githubexamples.avik.fightclub.domain.MovieDetailsRepository
 import com.githubexamples.avik.fightclub.domain.MovieListingRepository
+import com.githubexamples.avik.fightclub.domain.MovieSearchCacheRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -50,6 +51,10 @@ class DataModule {
     @Provides
     @Singleton
     fun provideSimilarMovieApiSource(apiService: ApiService) = GetSimilarMovieResponseImpl(apiService)
+
+    @Provides
+    @Singleton
+    fun provideMoviesCacheRepository():MovieSearchCacheRepository = MovieSearchCacheRepositoryImpl()
 
 
     @Provides

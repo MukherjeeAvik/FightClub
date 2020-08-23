@@ -5,6 +5,7 @@
     <color name="colorSecondary">#59405c</color>
     <color name="colorAccent">#87556f</color>
     <color name="primaryTextColor">#fff</color>
+    <color name="secondaryTextColor">#D3D3D3</color>
 
 
     <color name="background">#322f3d</color>
